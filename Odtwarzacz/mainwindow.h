@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <QMediaPlayer>
-//#include <QVideoWidget>
+#include <QVideoWidget>
 #include <QSlider>
 #include <QLabel>
 
@@ -24,9 +24,12 @@ private:
     QSlider* currentContentSlider;
     QLabel* currentContentDuration;
 
+    QVideoWidget* videoWidget;
+
     Ui::MainWindow *ui;
 
     void init();
+    void initLayout();
 
 };
 
