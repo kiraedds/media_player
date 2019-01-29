@@ -30,7 +30,7 @@ void MainWindow::init()
     this->currentContentSlider->setOrientation(Qt::Horizontal);
 
     this->initLayout();
-
+    this->initSignalsAndSlots();
 }
 
 void MainWindow::initLayout()
@@ -49,4 +49,43 @@ void MainWindow::initLayout()
     this->ui->centralWidget->setLayout(boxLayout);
 }
 
+void MainWindow::positionChanged(qint64 position)
+{
+    this->currentContentSlider->setValue(position);
+    this->updateDurationInfo();
+}
 
+
+void MainWindow::initSignalsAndSlots()
+{
+    connect(this->mediaPlayer, &QMediaPlayer::durationChanged, this->currentContentSlider, &QSlider::setMaximum);
+    connect(this->mediaPlayer, &QMediaPlayer::positionChanged, this, &MainWindow::positionChanged);
+    connect(this->currentContentSlider, &QSlider::sliderMoved, this->mediaPlayer, &QMediaPlayer::setPosition);
+}
+
+void MainWindow::updateDurationInfo()
+{
+    const qint64 currentInfo = this->mediaPlayer->position() / 1000;
+    const qint64 duration = this->mediaPlayer->duration() / 1000;
+    QString tStr;
+
+    if (currentInfo)
+    {
+        QTime currentTime((currentInfo / 3600) %60,
+                          (currentInfo / 60) % 60,
+                          (currentInfo % 60),
+                          (currentInfo * 1000) % 1000);
+        QTime totalTime((duration / 3600) % 60,
+                        (duration / 60) % 60,
+                        (duration % 60),
+                        (duration * 1000) % 1000);
+        QString format = "mm:ss";
+
+        if (duration > 3600)
+            format = "hh:mm:ss";
+
+        tStr = currentTime.toString(format) + " / " + totalTime.toString(format);
+    }
+
+    this->currentContentDuration->setText(tStr);
+}

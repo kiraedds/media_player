@@ -19,6 +19,11 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
+private slots:
+    void positionChanged(qint64 position);
+
+
 private:
     QMediaPlayer* mediaPlayer;
     QSlider* currentContentSlider;
@@ -30,7 +35,8 @@ private:
 
     void init();
     void initLayout();
-
+    void initSignalsAndSlots();
+    void updateDurationInfo();
 };
 
 #endif // MAINWINDOW_H
