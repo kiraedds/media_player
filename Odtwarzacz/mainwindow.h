@@ -2,6 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMediaPlayer>
+//#include <QVideoWidget>
+#include <QSlider>
+#include <QLabel>
 
 namespace Ui {
 class MainWindow;
@@ -16,7 +20,14 @@ public:
     ~MainWindow();
 
 private:
+    QMediaPlayer* mediaPlayer;
+    QSlider* currentContentSlider;
+    QLabel* currentContentDuration;
+
     Ui::MainWindow *ui;
+
+    void init();
+
 };
 
 #endif // MAINWINDOW_H
