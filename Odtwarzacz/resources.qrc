@@ -10,5 +10,6 @@
         <file>icons/media-stop.png</file>
         <file>icons/menu.png</file>
         <file>icons/volume-high.png</file>
+	<file>icons/volume-mute.png</file>
     </qresource>
 </RCC>
