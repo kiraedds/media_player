@@ -59,7 +59,8 @@ void MainWindow::init()
     this->mediaPlayer->setVideoOutput(this->videoWidget);
     this->currentContentSlider->setOrientation(Qt::Horizontal);
     this->currentVolumeSlider->setOrientation(Qt::Horizontal);
-    this->currentVolumeSlider->setGeometry(0,0,100,20);
+    //this->currentVolumeSlider->setGeometry(0,0,100,20);
+    this->currentVolumeSlider->setValue(100);
     this->initLayout();
     this->initSignalsAndSlots();
 }
