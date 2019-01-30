@@ -8,6 +8,7 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
+     playerMuted(false) ,
     ui(new Ui::MainWindow)
 {
    this->init();
@@ -36,13 +37,18 @@ void MainWindow::on_actionPlay_triggered()
         this->ui->statusBar->showMessage("Playing");
     }
 }
-void MainWindow::on_actionMute_triggered()
+/*void MainWindow::on_actionMute_toggled()
 {
+            if(!playerMuted)
+            this->mediaPlayer->setMuted(1);
+            if(playerMuted)
+                this->mediaPlayer->setMuted(0);
 
-        this->mediaPlayer->setMuted(1);
         this->ui->statusBar->showMessage("Mute");
 
+
 }
+*/
 
 void MainWindow::on_actionPause_triggered()
 {
@@ -123,4 +129,21 @@ void MainWindow::updateDurationInfo()
     }
 
     this->currentContentDuration->setText(tStr);
+}
+
+
+void MainWindow::on_actionMute_toggled(bool arg1)
+{
+    if(arg1)
+    {
+
+        this->mediaPlayer->setMuted(1);
+        this->ui->statusBar->showMessage("Muted");
+    }
+    else if(!arg1)
+    {
+
+        this->ui->statusBar->showMessage("UnMuted");
+        this->mediaPlayer->setMuted(0);
+    }
 }

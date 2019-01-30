@@ -25,9 +25,14 @@ private slots:
     void on_actionOpen_triggered();
     void on_actionPlay_triggered();
     void on_actionPause_triggered();
-    void on_actionMute_triggered();
+    void on_actionMute_toggled();
     void positionChanged(qint64 position);
 
+
+
+    void on_actionMute_triggered(bool checked);
+
+    void on_actionMute_toggled(bool arg1);
 
 private:
     QMediaPlayer* mediaPlayer;
@@ -35,7 +40,7 @@ private:
     QLabel* currentContentDuration;
     QSoundEffect *sound ;
     QVideoWidget* videoWidget;
-
+    bool playerMuted;
     Ui::MainWindow *ui;
 
     void init();

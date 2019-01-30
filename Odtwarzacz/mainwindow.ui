@@ -65,6 +65,12 @@
    </property>
   </action>
   <action name="actionMute">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="resources.qrc">
      <normaloff>:/images/icons/volume-mute.png</normaloff>:/images/icons/volume-mute.png</iconset>
