@@ -53,11 +53,13 @@ void MainWindow::init()
     this->videoWidget = new QVideoWidget();
     this->mediaPlayer = new QMediaPlayer();
     this->currentContentSlider = new QSlider();
+    this->currentVolumeSlider= new QSlider();
     this->currentContentDuration = new QLabel("00:00/00:00");
 
     this->mediaPlayer->setVideoOutput(this->videoWidget);
     this->currentContentSlider->setOrientation(Qt::Horizontal);
-
+    this->currentVolumeSlider->setOrientation(Qt::Horizontal);
+    this->currentVolumeSlider->setGeometry(0,0,100,20);
     this->initLayout();
     this->initSignalsAndSlots();
 }
@@ -70,7 +72,7 @@ void MainWindow::initLayout()
     QHBoxLayout* hLayout = new QHBoxLayout();
     hLayout->addWidget(this->currentContentSlider);
     hLayout->addWidget(this->currentContentDuration);
-
+    hLayout->addWidget(this->currentVolumeSlider);
     QBoxLayout* boxLayout = new QVBoxLayout();
     boxLayout->addLayout(displayLayout);
     boxLayout->addLayout(hLayout);

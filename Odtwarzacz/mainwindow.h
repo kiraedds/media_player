@@ -31,6 +31,7 @@ private slots:
 private:
     QMediaPlayer* mediaPlayer;
     QSlider* currentContentSlider;
+    QSlider* currentVolumeSlider;
     QLabel* currentContentDuration;
     QSoundEffect *sound ;
     QVideoWidget* videoWidget;
