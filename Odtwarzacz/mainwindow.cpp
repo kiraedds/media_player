@@ -72,7 +72,9 @@ void MainWindow::initLayout()
     QHBoxLayout* hLayout = new QHBoxLayout();
     hLayout->addWidget(this->currentContentSlider);
     hLayout->addWidget(this->currentContentDuration);
+    hLayout->addSpacing(50);
     hLayout->addWidget(this->currentVolumeSlider);
+
     QBoxLayout* boxLayout = new QVBoxLayout();
     boxLayout->addLayout(displayLayout);
     boxLayout->addLayout(hLayout);
