@@ -1,0 +1,93 @@
+@startuml
+
+namespace odtwarzacz {
+
+    interface Main {
+        + void execute()
+    }
+
+    class MainWindow{
+	+ explicit MainWintow(QWiget*)
+    }
+
+    Main <|-- MainWindow
+
+    class init {
+        - QVideoWidget* videoWidget;
+        - QMediaPlayer* mediaPlayer;
+        - QSlider* currentContentSlider;
+	- QLabel* currentContentDuration;
+	+  explicit MainWintow(QWiget*);
+    }
+
+    class initLayout {
+	- QBoxLayout* displayLayout;
+	- QHBoxLayout* hLayout;
+	- QBoxLayout* boxLayout;
+        - QSlider* currentContentSlider;
+    	- QLabel* currentContentDuration;
+	+  explicit MainWintow(QWiget*);
+    }
+
+    class initSignalAndSlots {
+	- QSlider* currentContentSlider;
+	+ explicit MainWintow(QWiget*);
+    }
+
+    initLayout <|-- init
+    initSignalAndSlots <|-- init
+
+    class UpdateDurationInfo {
+        - qint64 currentInfo;
+        - qint64 duration;
+        +  explicit MainWintow(QWiget*);
+    }
+
+    class on_actionOpen_triggered {
+	-  QMediaPlayer* mediaPlayer;
+	+  explicit MainWintow(QWiget*);
+    }
+
+    class on_actionPlay_triggered {
+	-  QMediaPlayer* mediaPlayer;
+	+  explicit MainWintow(QWiget*);
+    }
+
+    class on_actionPause_triggered {
+	-  QMediaPlayer* mediaPlayer;
+	+  explicit MainWintow(QWiget*);
+    }
+
+    class on_actionMute_toggled {
+	-  QMediaPlayer* mediaPlayer;
+	+  explicit MainWintow(QWiget*);
+    }
+
+    class on_actionFull_Screen_triggered {
+	-  QMediaPlayer* mediaPlayer;
+	+  explicit MainWintow(QWiget*);
+    }
+
+    class on_actionVolume_Change {
+	-  QMediaPlayer* mediaPlayer;
+	+  explicit MainWintow(QWiget*);
+    }
+
+    MainWindow <|-- init
+
+    MainWindow <-- UpdateDurationInfo
+    MainWindow <-- on_actionOpen_triggered
+    MainWindow <-- on_actionPlay_triggered
+    MainWindow <-- on_actionPause_triggered
+    MainWindow <-- on_actionMute_toggled
+    MainWindow <-- on_actionFull_Screen_triggered
+    MainWindow <-- on_actionVolume_Change
+
+    class positionChanged {
+	- QSlider* currentContentSlider;
+    }
+
+    UpdateDurationInfo <|-- positionChanged  
+}
+
+@enduml
