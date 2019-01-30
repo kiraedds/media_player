@@ -8,7 +8,7 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-     playerMuted(false) ,
+
     ui(new Ui::MainWindow)
 {
    this->init();
