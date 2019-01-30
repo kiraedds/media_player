@@ -94,6 +94,7 @@ void MainWindow::initSignalsAndSlots()
     connect(this->mediaPlayer, &QMediaPlayer::durationChanged, this->currentContentSlider, &QSlider::setMaximum);
     connect(this->mediaPlayer, &QMediaPlayer::positionChanged, this, &MainWindow::positionChanged);
     connect(this->currentContentSlider, &QSlider::sliderMoved, this->mediaPlayer, &QMediaPlayer::setPosition);
+    connect(this->currentVolumeSlider,&QSlider::sliderMoved, this->mediaPlayer,&QMediaPlayer::setVolume);
 }
 
 void MainWindow::updateDurationInfo()
