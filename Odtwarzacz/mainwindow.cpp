@@ -37,18 +37,6 @@ void MainWindow::on_actionPlay_triggered()
         this->ui->statusBar->showMessage("Playing");
     }
 }
-/*void MainWindow::on_actionMute_toggled()
-{
-            if(!playerMuted)
-            this->mediaPlayer->setMuted(1);
-            if(playerMuted)
-                this->mediaPlayer->setMuted(0);
-
-        this->ui->statusBar->showMessage("Mute");
-
-
-}
-*/
 
 void MainWindow::on_actionPause_triggered()
 {
