@@ -25,6 +25,7 @@ void MainWindow::on_actionOpen_triggered()
     this->mediaPlayer->stop();
     this->mediaPlayer->setMedia(QUrl::fromLocalFile(fileName));
     this->mediaPlayer->play();
+    this->ui->statusBar->showMessage("File Open");
 }
 
 void MainWindow::on_actionPlay_triggered()
@@ -34,6 +35,13 @@ void MainWindow::on_actionPlay_triggered()
         this->mediaPlayer->play();
         this->ui->statusBar->showMessage("Playing");
     }
+}
+void MainWindow::on_actionMute_triggered()
+{
+
+        this->mediaPlayer->setMuted(1);
+        this->ui->statusBar->showMessage("Mute");
+
 }
 
 void MainWindow::on_actionPause_triggered()

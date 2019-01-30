@@ -6,6 +6,7 @@
 #include <QVideoWidget>
 #include <QSlider>
 #include <QLabel>
+#include <QSoundEffect>
 
 namespace Ui {
 class MainWindow;
@@ -24,7 +25,7 @@ private slots:
     void on_actionOpen_triggered();
     void on_actionPlay_triggered();
     void on_actionPause_triggered();
-
+    void on_actionMute_triggered();
     void positionChanged(qint64 position);
 
 
@@ -32,7 +33,7 @@ private:
     QMediaPlayer* mediaPlayer;
     QSlider* currentContentSlider;
     QLabel* currentContentDuration;
-
+    QSoundEffect *sound ;
     QVideoWidget* videoWidget;
 
     Ui::MainWindow *ui;
